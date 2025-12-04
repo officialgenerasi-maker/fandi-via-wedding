@@ -1,11 +1,12 @@
 /* =========================================================================
-   js/script.js
+   js/script.js (merged & enhanced)
    - Cover sequencing
    - Guest param
-   - Music toggle
+   - Music toggle & autoplay after user click
    - Countdown for two dates
    - Copy rekening
    - Gallery lightbox
+   - Particles (gold dust) + simple parallax
    ========================================================================= */
 
 /* helper: get query param */
@@ -44,8 +45,29 @@ function initCoverReveal(){
   if(openBtn) setTimeout(()=> openBtn.classList.add('reveal'), 2300);
 
   if(openBtn){
-    openBtn.addEventListener('click', ()=> {
-      try { const a=document.getElementById('bgm'); if(a && !a.paused) a.pause(); } catch(e){}
+    openBtn.addEventListener('click', (ev)=> {
+      ev.preventDefault();
+      // play music (must be user gesture)
+      const audio = document.getElementById('bgm');
+      try{
+        if(audio && audio.paused){
+          audio.play().catch(()=>{ /* iOS may block but user gesture should allow */ });
+        }
+      } catch(e){}
+      // reveal main content
+      const main = document.getElementById('mainContent');
+      const overlay = document.querySelector('.cover-overlay');
+      if(overlay){
+        overlay.style.transition = 'opacity .9s ease, transform .9s ease';
+        overlay.style.opacity = '0';
+        overlay.style.transform = 'scale(.995) translateY(-6px)';
+        setTimeout(()=> overlay.style.display='none', 950);
+      }
+      if(main){
+        main.classList.remove('hidden');
+        // scroll to top of main
+        setTimeout(()=> window.scrollTo({ top: 0, behavior: 'smooth' }), 420);
+      }
     });
   }
 }
@@ -134,12 +156,80 @@ function initGalleryLightbox(){
   });
 }
 
+/* PARTICLES (gold dust) */
+function initParticles(){
+  const canvas = document.createElement('canvas');
+  canvas.id = 'particleCanvas';
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  let raf;
+  function resize(){
+    canvas.width = window.innerWidth * devicePixelRatio;
+    canvas.height = window.innerHeight * devicePixelRatio;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+  }
+  resize(); window.addEventListener('resize', resize);
+  const particles = [];
+  function spawn(){
+    const x = Math.random()*canvas.width;
+    const y = canvas.height + (Math.random()*80);
+    const size = 0.6 + Math.random()*3.2;
+    const speed = 0.6 + Math.random()*1.8;
+    const life = 120 + Math.random()*240;
+    particles.push({x,y,size,speed,life,age:0,alpha:1});
+  }
+  function tick(){
+    if(particles.length < 120 && Math.random() < 0.6) spawn();
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(let i=particles.length-1;i>=0;i--){
+      const p = particles[i];
+      p.y -= p.speed;
+      p.age++;
+      p.alpha = Math.max(0, 1 - p.age/p.life);
+      const grd = ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.size*6);
+      grd.addColorStop(0, `rgba(255,240,180,${0.95*p.alpha})`);
+      grd.addColorStop(0.5, `rgba(255,200,90,${0.5*p.alpha})`);
+      grd.addColorStop(1, `rgba(255,180,70,${0.03*p.alpha})`);
+      ctx.fillStyle = grd;
+      ctx.fillRect(p.x - p.size*4, p.y - p.size*4, p.size*8, p.size*8);
+      if(p.age > p.life) particles.splice(i,1);
+    }
+    raf = requestAnimationFrame(tick);
+  }
+  tick();
+  document.addEventListener('visibilitychange', ()=> { if(document.hidden) cancelAnimationFrame(raf); else tick(); });
+}
+
+/* PARALLAX subtle for cover bg on pointer move */
+function initParallax(){
+  const bg = document.querySelector('.cover-bg');
+  document.addEventListener('pointermove', (e)=>{
+    if(!bg) return;
+    const cx = window.innerWidth/2;
+    const cy = window.innerHeight/2;
+    const dx = (e.clientX - cx) / cx;
+    const dy = (e.clientY - cy) / cy;
+    bg.style.transform = `translate3d(${dx*6}px, ${dy*4}px, 0) scale(1.03)`;
+  }, {passive:true});
+}
+
 /* INIT */
 document.addEventListener('DOMContentLoaded', function(){
-  if(document.body.classList.contains('cover-page')) initCoverReveal();
+  initCoverReveal();
   initMusicToggle();
   initCountdowns();
   window.copyRek = copyRek;
   initGalleryLightbox();
-  const a=document.getElementById('bgm'); if(a){ window.addEventListener('pagehide', ()=> { try{ a.pause(); } catch(e){} }); }
+  initParticles();
+  initParallax();
+
+  // fade-in observer for content
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting) en.target.classList.add('in-view');
+    });
+  }, {threshold:0.14});
+  document.querySelectorAll('.fade-in').forEach(el=> io.observe(el));
 });
