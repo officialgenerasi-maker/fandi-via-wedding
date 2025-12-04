@@ -47,33 +47,54 @@ body{
   mix-blend-mode: overlay;
 }
 
-/* ORNAMENT JAWA KIRI KANAN */
-.ornament{
-  width:80px;
-  position:absolute;
-  top:15%;
-  opacity:.9;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,.6));
-  animation: floatSlow 6s ease-in-out infinite;
+/* ORNAMENT (GUNUNGAN + CORNER) */
+.ornament {
+  position: absolute;
+  top: 12%;
+  width: 86px;            /* sesuaikan: besar kecil ornament kiri/kanan */
+  opacity: 0.78;          /* agar tidak terlalu mencolok */
+  pointer-events: none;   /* klik tidak mengganggu */
+  z-index: 2;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,.6));
+  animation: floatSlow 10s ease-in-out infinite;
 }
-.ornament.left{ left:8px; }
-.ornament.right{ right:8px; transform: scaleX(-1); }
+.ornament-left { left: 8px; transform-origin: left center; }
+.ornament-right { right: 8px; transform-origin: right center; transform: scaleX(-1); }
 
-@keyframes floatSlow{
-  0%{ transform: translateY(0); }
-  50%{ transform: translateY(-6px); }
-  100%{ transform: translateY(0); }
+/* jika kamu ingin pakai file berbeda untuk kanan, hapus transform:scaleX */
+
+.orn-img { width: 100%; height: auto; display:block; }
+
+/* WAYANG (bawah tengah) */
+.wayang-ornament {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(720px, 92%);
+  opacity: 0.9;
+  z-index: 2;
+  pointer-events: none;
+  animation: wiggle 9s ease-in-out infinite;
+}
+.wayang-img { width:100%; height:auto; display:block; filter: drop-shadow(0 8px 24px rgba(0,0,0,.7)); }
+
+/* Floating / breathe animations */
+@keyframes floatSlow {
+  0% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-6px) rotate(0.4deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+@keyframes wiggle {
+  0% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-4px); }
+  100% { transform: translateX(-50%) translateY(0); }
 }
 
-/* WAYANG BAWAH */
-.wayang-ornament{
-  position:absolute;
-  bottom:6%;
-  width:min(650px, 90%);
-  left:50%;
-  transform:translateX(-50%);
-  opacity:.92;
-  filter: drop-shadow(0 6px 15px rgba(0,0,0,.8));
+/* Responsif: sembunyikan ornamen di layar kecil atau perkecil */
+@media(max-width:720px){
+  .ornament { display: none; }
+  .wayang-ornament { display: none; }
 }
 
 /* COVER CONTENT */
