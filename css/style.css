@@ -19,7 +19,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;-we
   position:fixed;inset:0;
   background-image: url('../images/cover.jpg');
   background-size:cover;background-position:center;
-  filter: blur(3px) brightness(.65) contrast(1.02);
+  filter: blur(2px) brightness(.65) contrast(1.02);
   z-index:0;transform:translateZ(0);
 }
 /* overlay */
@@ -117,4 +117,84 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
   .gallery img{height:140px}
   .profile-photo{height:auto}
   .cover-bg{filter:blur(2px) brightness(.7)}
+}
+
+/* =========================================
+   ORNAMENT PREMIUM
+   - Glow emas
+   - Emboss halus
+   - Animasi slow luxury
+   ========================================= */
+
+/* ORNAMEN KIRI & KANAN */
+.ornament {
+    position: absolute;
+    top: 18px;
+    width: 150px;
+    pointer-events: none;
+    z-index: 30;
+
+    /* efek premium */
+    filter: drop-shadow(0 0 6px rgba(199,168,74,0.35))
+            drop-shadow(0 4px 14px rgba(0,0,0,0.45));
+
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+    animation: ornamentFade 1.8s ease-out forwards;
+}
+
+.ornament-left { left: 18px; }
+.ornament-right { right: 18px; transform: scaleX(-1) translateY(-12px); }
+
+.orn-img {
+    width: 100%;
+    height: auto;
+    user-select: none;
+}
+
+/* WAYANG ORNAMENT */
+.wayang-ornament {
+    margin: 42px auto 0;
+    width: 240px;
+    pointer-events: none;
+    z-index: 25;
+
+    filter: drop-shadow(0 0 8px rgba(199,168,74,0.35))
+            drop-shadow(0 6px 22px rgba(0,0,0,0.55));
+
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+    animation: wayangFade 2.2s ease-out forwards;
+}
+
+.wayang-img {
+    width: 100%;
+    display: block;
+    user-select: none;
+}
+
+/* ANIMASI ORNAMEN */
+@keyframes ornamentFade {
+    0% { opacity: 0; transform: translateY(-12px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes wayangFade {
+    0% { opacity: 0; transform: translateY(14px) scale(0.97); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* MOBILE FIX */
+@media(max-width: 720px){
+    .ornament {
+        width: 96px;
+        top: 14px;
+    }
+    .ornament-left { left: 8px; }
+    .ornament-right { right: 8px; }
+
+    .wayang-ornament {
+        width: 160px;
+        margin-top: 32px;
+    }
 }
