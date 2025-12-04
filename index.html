@@ -1,32 +1,93 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alfandi & Oktavia — The Wedding</title>
 
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-
-  <title>Undangan Pernikahan Fandi & Via</title>
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body class="cover-page">
 
-  <div class="cover-bg" style="background-image:url('images/cover.jpg')"></div>
+  <!-- Background -->
+  <div class="cover-bg" style="background-image: url('images/cover.jpg')"></div>
 
+  <!-- Dark Gloss Overlay -->
   <div class="cover-overlay">
-    <div class="cover-box">
-      <div class="gold-line"></div>
+    <div class="overlay-gloss"></div>
 
-      <h1 class="cover-names">Alfandi<br>&<br>Oktavia</h1>
-      <p class="cover-date">Minggu, 28 Desember 2025</p>
-
-      <a class="btn-open" href="main.html">Buka Undangan</a>
-
-      <div class="gold-line"></div>
+    <!-- ORNAMENT JAWA KIRI -->
+    <div class="ornament left">
+      <svg viewBox="0 0 120 200">
+        <g fill="none" stroke="#c7a84a" stroke-width="1.6" stroke-linecap="round">
+          <path d="M10,10 C40,30 40,70 10,90"/>
+          <path d="M20,30 C50,50 50,90 20,110" opacity=".7"/>
+          <path d="M30,70 C60,90 60,130 30,150" opacity=".5"/>
+        </g>
+      </svg>
     </div>
+
+    <!-- ORNAMENT JAWA KANAN -->
+    <div class="ornament right">
+      <svg viewBox="0 0 120 200">
+        <g fill="none" stroke="#c7a84a" stroke-width="1.6">
+          <path d="M110,10 C80,30 80,70 110,90"/>
+          <path d="M100,30 C70,50 70,90 100,110" opacity=".7"/>
+          <path d="M90,70 C60,90 60,130 90,150" opacity=".5"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Konten Tengah -->
+    <div class="cover-content">
+
+      <div id="label-top" class="label-top">THE WEDDING OF</div>
+
+      <div class="names-wrapper">
+        <div class="name"><span class="first">A</span>lfandi</div>
+        <div class="amp">&amp;</div>
+        <div class="name"><span class="first">O</span>ktavia</div>
+      </div>
+
+      <div id="date-block" class="date-block">
+        Minggu, 28 Desember 2025 — 08:00 WIB s/d Selesai
+      </div>
+
+      <div id="guest-block" class="guest-block">
+        Untuk: <span id="guest-name">Tamu Yang Terhormat</span>
+      </div>
+
+      <a id="open-btn" class="btn-open" href="main.html">Buka Undangan</a>
+    </div>
+
+    <!-- Ornamen Wayang Bawah -->
+    <div class="wayang-ornament">
+      <svg viewBox="0 0 500 80">
+        <g fill="#c7a84a">
+          <path d="M0 60 L25 10 L50 60 Z"/>
+          <path d="M50 60 L75 10 L100 60 Z" opacity=".8"/>
+          <path d="M100 60 L125 10 L150 60 Z" opacity=".9"/>
+          <path d="M150 60 L175 10 L200 60 Z" opacity=".8"/>
+          <path d="M200 60 L225 10 L250 60 Z"/>
+          <path d="M250 60 L275 10 L300 60 Z" opacity=".8"/>
+          <path d="M300 60 L325 10 L350 60 Z"/>
+          <path d="M350 60 L375 10 L400 60 Z" opacity=".8"/>
+          <path d="M400 60 L425 10 L450 60 Z"/>
+          <path d="M450 60 L475 10 L500 60 Z" opacity=".9"/>
+        </g>
+      </svg>
+    </div>
+
   </div>
+
+  <!-- Musik -->
+  <audio id="bgm" src="assets/music.mp3" loop preload="auto"></audio>
+  <button id="music-toggle" class="music-toggle">▶︎</button>
+
+  <script src="js/script.js"></script>
 
 </body>
 </html>
