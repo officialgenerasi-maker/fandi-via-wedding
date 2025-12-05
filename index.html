@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body class="cover-page">
+<body class="cover-page ios-fix">
 
-  <!-- Background -->
-  <div class="cover-bg" role="img" aria-label="Cover background"></div>
+  <!-- Background (inline so path pasti) -->
+  <div class="cover-bg" role="img" aria-label="Cover background" style="background-image: url('images/cover.jpg')"></div>
 
   <!-- Dark Gloss Overlay + Content -->
   <div class="cover-overlay">
@@ -47,11 +47,11 @@
 
       <!-- Guest -->
       <div id="guest-block" class="guest-block">
-        Kepada: <span id="guest-name">Tamu Yang Terhormat</span>
+        To: <span id="guest-name">Tamu Yang Terhormat</span>
       </div>
 
       <!-- Open button -->
-      <button id="open-btn" class="btn-open">Buka Undangan</button>
+      <button id="open-btn" class="btn-open" type="button">Buka Undangan</button>
 
     </div>
 
@@ -67,6 +67,7 @@
   <button id="music-toggle" class="music-toggle" aria-label="Play/Pause musik">▶︎</button>
 
   <!-- MAIN CONTENT -->
+  <!-- note: class 'hidden' kept so JS can remove it when opening; CSS treats :not(.hidden) as visible -->
   <div id="mainContent" class="main-content hidden">
 
     <header class="site-header">
@@ -126,12 +127,12 @@
 
       <!-- ACARA 1 -->
       <section class="card fade-in">
-        <h2 class="section-title">Akad & Resepsi </h2>
+        <h2 class="section-title">Akad & Resepsi</h2>
 
         <p class="event-item">🗓 <b>Minggu, 21 Desember 2025</b> • 08:00 WIB s/d Selesai</p>
         <p class="event-item">📍 Jl. Bambu Larangan Rt.06/Rw.05 Cengkareng Barat, Jakarta Barat</p>
 
-        <a class="map-btn" href="https://maps.app.goo.gl/xH2Mmn9Gae6yLm4c8?g_st=ic" target="_blank">Buka di Google Maps</a>
+        <a class="map-btn" href="https://maps.app.goo.gl/xH2Mmn9Gae6yLm4c8?g_st=ic" target="_blank" rel="noopener">Buka di Google Maps</a>
 
         <div class="countdown-block">
           <h3>Hitung Mundur</h3>
@@ -146,7 +147,7 @@
         <p class="event-item">🗓 <b>Minggu, 28 Desember 2025</b> • 09:00 WIB s/d Selesai</p>
         <p class="event-item">📍 Jl. KP Utan Rt.12/Rw.04 Cengkareng Timur, Jakarta Barat</p>
 
-        <a class="map-btn" href="https://maps.app.goo.gl/ZBqtiRgDEKgQt1UL6?g_st=ic" target="_blank">Buka di Google Maps</a>
+        <a class="map-btn" href="https://maps.app.goo.gl/ZBqtiRgDEKgQt1UL6?g_st=ic" target="_blank" rel="noopener">Buka di Google Maps</a>
 
         <div class="countdown-block">
           <h3>Hitung Mundur</h3>
@@ -201,17 +202,17 @@
         <h2 class="section-title">Konfirmasi Kehadiran</h2>
         <p>Silakan konfirmasi via WhatsApp:</p>
 
-        <a class="wa-btn" href="https://wa.me/6285776607687?text=Saya%20konfirmasi%20hadir%20-%20Nama%20%3A%20" target="_blank">Konfirmasi via WhatsApp</a>
+        <a class="wa-btn" href="https://wa.me/6285776607687?text=Saya%20konfirmasi%20hadir%20-%20Nama%20%3A%20" target="_blank" rel="noopener">Konfirmasi via WhatsApp</a>
 
         <p style="margin-top:14px">Atau isi buku tamu online:</p>
-        <a class="map-link" href="https://forms.gle/eVXQU3xYrp5PUfhY7" target="_blank">Buka Buku Tamu</a>
+        <a class="map-link" href="https://forms.gle/eVXQU3xYrp5PUfhY7" target="_blank" rel="noopener">Buka Buku Tamu</a>
       </section>
 
     </main>
 
     <footer>
-      <p style="opacity:.7;text-align:center;margin:30px 0 4px">Alfandi &amp; Oktavia — 21 Desember 2025</p>
-      <p style="opacity:.55;font-size:12px;text-align:center">© 2025 Wedding Invitation — Crafted with Love - @angkringan Shelter Roamvin</p>
+      <p style="opacity:.7;margin:20px 0 2px">Alfandi &amp; Oktavia — 21 Desember 2025</p>
+      <p style="opacity:.55;font-size:12px">© 2025 Funfly & Roamvin</p>
     </footer>
 
   </div>
