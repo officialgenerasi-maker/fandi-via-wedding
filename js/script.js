@@ -1,30 +1,30 @@
 /* =========================================================================
-   js/script.js (merged & enhanced)
+   script.js — Wedding Invitation Premium
    - Cover sequencing
    - Guest param
-   - Music toggle & autoplay after user click
-   - Countdown for two dates
+   - Music toggle & autoplay
+   - Countdown
    - Copy rekening
    - Gallery lightbox
-   - Particles (gold dust) + simple parallax
+   - Gold particles + subtle parallax
    ========================================================================= */
 
-/* helper: get query param */
-function getQueryParam(k){
+/* ===== Helper: get query param ===== */
+function getQueryParam(key){
   try {
     const u = new URL(window.location.href);
-    return u.searchParams.get(k);
+    return u.searchParams.get(key);
   } catch(e){
     const qs = window.location.search.substring(1).split('&');
     for(let i=0;i<qs.length;i++){
       const p = qs[i].split('=');
-      if(decodeURIComponent(p[0])===k) return decodeURIComponent(p[1]||'');
+      if(decodeURIComponent(p[0])===key) return decodeURIComponent(p[1]||'');
     }
     return null;
   }
 }
 
-/* COVER sequencing */
+/* ===== COVER SEQUENCING & OPEN BUTTON ===== */
 function initCoverReveal(){
   const label = document.getElementById('label-top');
   const names = document.querySelector('.names-wrapper');
@@ -33,11 +33,13 @@ function initCoverReveal(){
   const openBtn = document.getElementById('open-btn');
   const guestNameSpan = document.getElementById('guest-name');
 
+  // Set guest name from ?guest=
   const qGuest = getQueryParam('guest');
   if(qGuest && guestNameSpan){
-    try{ guestNameSpan.textContent = qGuest; } catch(e){}
+    guestNameSpan.textContent = qGuest;
   }
 
+  // Animate cover elements
   if(label) setTimeout(()=> label.classList.add('reveal'), 200);
   if(names) setTimeout(()=> names.classList.add('reveal'), 900);
   if(dateBlock) setTimeout(()=> dateBlock.classList.add('reveal'), 1500);
@@ -47,14 +49,10 @@ function initCoverReveal(){
   if(openBtn){
     openBtn.addEventListener('click', (ev)=> {
       ev.preventDefault();
-      // play music (must be user gesture)
       const audio = document.getElementById('bgm');
-      try{
-        if(audio && audio.paused){
-          audio.play().catch(()=>{ /* iOS may block but user gesture should allow */ });
-        }
-      } catch(e){}
-      // reveal main content
+      if(audio && audio.paused){
+        audio.play().catch(()=>{}); // iOS user gesture
+      }
       const main = document.getElementById('mainContent');
       const overlay = document.querySelector('.cover-overlay');
       if(overlay){
@@ -65,34 +63,35 @@ function initCoverReveal(){
       }
       if(main){
         main.classList.remove('hidden');
-        // scroll to top of main
         setTimeout(()=> window.scrollTo({ top: 0, behavior: 'smooth' }), 420);
       }
     });
   }
 }
 
-/* MUSIC toggle */
+/* ===== MUSIC TOGGLE ===== */
 function initMusicToggle(){
   const btn = document.getElementById('music-toggle');
   const audio = document.getElementById('bgm');
   if(!btn || !audio) return;
   btn.textContent = '▶︎';
-  let playing=false;
+  let playing = false;
+
   btn.addEventListener('click', function(e){
     e.preventDefault();
-    if(!audio.src){ console.warn('Audio source kosong. Upload assets/musik.mp3'); return; }
+    if(!audio.src){ console.warn('Audio source kosong.'); return; }
     if(!playing){
-      audio.play().then(()=>{ playing=true; btn.textContent='⏸'; }).catch(err=>{ playing=true; btn.textContent='⏸'; console.warn(err); });
+      audio.play().then(()=>{ playing=true; btn.textContent='⏸'; }).catch(()=>{ playing=true; btn.textContent='⏸'; });
     } else {
       audio.pause(); playing=false; btn.textContent='▶︎';
     }
   });
+
   audio.addEventListener('pause', ()=> { btn.textContent='▶︎'; playing=false; });
   audio.addEventListener('play', ()=> { btn.textContent='⏸'; playing=true; });
 }
 
-/* COUNTDOWNS */
+/* ===== COUNTDOWN ===== */
 function initCountdowns(){
   const els = document.querySelectorAll('.countdown');
   if(!els) return;
@@ -117,7 +116,7 @@ function initCountdowns(){
   });
 }
 
-/* COPY REKENING */
+/* ===== COPY REKENING ===== */
 function copyRek(){
   const el = document.getElementById('rek-no');
   if(!el){ alert('Nomor rekening tidak ditemukan'); return; }
@@ -132,12 +131,12 @@ function copyRek(){
   } else { fallbackCopy(text); }
   function fallbackCopy(s){
     const ta = document.createElement('textarea'); ta.value=s; document.body.appendChild(ta); ta.select();
-    try{ document.execCommand('copy'); alert('Nomor disalin: '+s); } catch(e){ alert('Gagal menyalin. Silakan salin manual: '+s); }
+    try{ document.execCommand('copy'); alert('Nomor disalin: '+s); } catch(e){ alert('Gagal menyalin.'); }
     document.body.removeChild(ta);
   }
 }
 
-/* GALLERY LIGHTBOX */
+/* ===== GALLERY LIGHTBOX ===== */
 function initGalleryLightbox(){
   const imgs = document.querySelectorAll('.gallery img');
   if(!imgs || imgs.length===0) return;
@@ -150,13 +149,13 @@ function initGalleryLightbox(){
       overlay.style.background='rgba(0,0,0,0.92)'; overlay.style.zIndex=99999; overlay.style.cursor='zoom-out';
       const big = document.createElement('img'); big.src=src; big.style.maxWidth='92%'; big.style.maxHeight='92%'; big.style.borderRadius='8px';
       overlay.appendChild(big);
-      overlay.addEventListener('click', ()=> { try{ document.body.removeChild(overlay);}catch(e){} });
+      overlay.addEventListener('click', ()=> { document.body.removeChild(overlay); });
       document.body.appendChild(overlay);
     });
   });
 }
 
-/* PARTICLES (gold dust) */
+/* ===== PARTICLES ===== */
 function initParticles(){
   const canvas = document.createElement('canvas');
   canvas.id = 'particleCanvas';
@@ -202,7 +201,7 @@ function initParticles(){
   document.addEventListener('visibilitychange', ()=> { if(document.hidden) cancelAnimationFrame(raf); else tick(); });
 }
 
-/* PARALLAX subtle for cover bg on pointer move */
+/* ===== PARALLAX ===== */
 function initParallax(){
   const bg = document.querySelector('.cover-bg');
   document.addEventListener('pointermove', (e)=>{
@@ -215,7 +214,7 @@ function initParallax(){
   }, {passive:true});
 }
 
-/* INIT */
+/* ===== INIT ===== */
 document.addEventListener('DOMContentLoaded', function(){
   initCoverReveal();
   initMusicToggle();
@@ -225,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function(){
   initParticles();
   initParallax();
 
-  // fade-in observer for content
+  // fade-in observer for all cards
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(en=>{
       if(en.isIntersecting) en.target.classList.add('in-view');
