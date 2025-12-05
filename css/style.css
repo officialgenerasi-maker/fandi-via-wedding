@@ -1,309 +1,296 @@
-/* -----------------------------------------------------------
-   BASIC RESET
------------------------------------------------------------ */
+/* ============================
+   GLOBAL
+============================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, html {
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-  font-family: "Poppins", sans-serif;
-  background: #f7f7f7;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Safari iOS – fix scroll ghosting */
-body.ios-fix {
+html, body {
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
+  scroll-behavior: smooth;
   overscroll-behavior: none;
-  -webkit-overflow-scrolling: touch;
 }
 
-/* -----------------------------------------------------------
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+/* ============================
    COVER PAGE
------------------------------------------------------------ */
+============================ */
 .cover-page {
   height: 100vh;
+  width: 100%;
   position: relative;
   overflow: hidden;
 }
 
+/* COVER BACKGROUND */
 .cover-bg {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-size: cover;
-  background-position: center;
-  filter: blur(4px);
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: blur(3px) brightness(0.55);
+  z-index: -3;
   transform: scale(1.05);
 }
 
-.cover-overlay {
-  position: relative;
-  z-index: 3;
-  width: 100%;
+/* LEFT & RIGHT VIGNETTE for dramatic cinematic border */
+.cover-vignette-left,
+.cover-vignette-right {
+  position: absolute;
+  top: 0;
+  width: 40%;
   height: 100%;
-  padding: 32px 22px 60px;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.cover-vignette-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.75), transparent);
+}
+
+.cover-vignette-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.75), transparent);
+}
+
+/* Dark gloss overlay */
+.cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+  backdrop-filter: blur(1.5px);
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  text-align: center;
+  align-items: center;
+  padding: 24px;
 }
 
 .overlay-gloss {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.55);
-  z-index: -1;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255,255,255,0.15), transparent 60%);
+  pointer-events: none;
 }
 
-/* -----------------------------------------------------------
-   ORNAMENTS
------------------------------------------------------------ */
-.ornament {
-  position: absolute;
-  top: 0;
-  width: 120px;
-  opacity: .75;
-}
-.ornament-left { left: 0; transform: scaleX(-1); }
-.ornament-right { right: 0; }
-
-.wayang-ornament {
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 180px;
-  opacity: .8;
-  z-index: 5;
+/* CONTENT CENTER */
+.cover-content {
+  text-align: center;
+  animation: fadeIn 1.6s ease forwards;
+  max-width: 90%;
 }
 
-/* -----------------------------------------------------------
-   COVER CONTENT
------------------------------------------------------------ */
+/* Label top */
 .label-top {
-  color: #f5d499;
-  font-size: 16px;
-  letter-spacing: 2px;
-  margin-bottom: 14px;
-  font-family: "Playfair Display", serif;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
+  opacity: 0;
+  animation: fadeUp 1.3s ease forwards;
 }
 
+/* NAMES */
 .names-wrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
 }
 
 .name {
-  font-family: "Dancing Script", cursive;
-  font-size: 54px;
-  color: #fff;
-  font-weight: 700;
-  text-shadow: 0 3px 9px rgba(0,0,0,.5);
+  font-family: 'Dancing Script', cursive;
+  font-size: 58px;
+  color: #f7d77c;
+  margin: 4px 0;
+  opacity: 0;
+  animation: fadeUp 1.5s ease forwards 0.4s;
 }
 
-.first {
-  color: #f7d9a1;
-  font-size: 68px;
+.name .first {
+  font-size: 90px;
 }
 
 .amp {
-  font-size: 44px;
-  font-family: "Playfair Display", serif;
-  color: #f5d499;
+  font-size: 38px;
+  color: #f5d77c;
+  margin: 6px 0;
+  opacity: 0;
+  animation: fadeUp 1.5s ease forwards 0.8s;
 }
 
+/* DATE */
 .date-block {
-  margin-top: 12px;
-  color: #fff;
-  opacity: .85;
+  margin-top: 16px;
+  font-size: 14px;
+  opacity: 0.85;
+  animation: fadeUp 1.5s ease forwards 1.2s;
 }
 
 .guest-block {
-  margin-top: 10px;
-  color: #fff;
-  font-size: 15px;
+  margin-top: 12px;
+  opacity: 0.9;
+  font-size: 14px;
+  animation: fadeUp 1.5s ease forwards 1.6s;
 }
 
-/* OPEN BUTTON */
+/* BUTTON OPEN */
 .btn-open {
-  margin-top: 22px;
+  margin-top: 20px;
   padding: 12px 26px;
-  background: #f1d9a1;
-  color: #4a3820;
-  border: none;
-  border-radius: 28px;
-  font-size: 17px;
-  font-weight: 600;
+  border: 1px solid #f5d77c;
+  background: rgba(0,0,0,0.45);
+  color: #f5d77c;
+  border-radius: 40px;
+  font-size: 16px;
+  letter-spacing: 1px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,.2);
-  transition: .25s;
+  animation: breathing 3s ease-in-out infinite, fadeUp 1.7s ease forwards 2s;
+  backdrop-filter: blur(2px);
 }
-.btn-open:active { transform: scale(.95); }
 
-/* -----------------------------------------------------------
-   MUSIC BUTTON
------------------------------------------------------------ */
+.btn-open:active {
+  transform: scale(0.97);
+}
+
+/* MUSIC BUTTON */
 .music-toggle {
   position: fixed;
-  bottom: 20px;
-  right: 18px;
+  top: 20px;
+  right: 16px;
+  z-index: 9999;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid #f5d77c;
+  border-radius: 50%;
   width: 46px;
   height: 46px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,.75);
-  backdrop-filter: blur(6px);
-  font-size: 20px;
-  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f5d77c;
+  font-size: 18px;
+  backdrop-filter: blur(2px);
 }
 
-/* -----------------------------------------------------------
+/* ============================
    MAIN CONTENT
------------------------------------------------------------ */
-/* visible when NOT hidden */
+============================ */
 .main-content {
-  opacity: 0;
-  visibility: hidden;
-  transition: .6s ease;
-  padding-bottom: 24px;  /* reduce extra bottom space */
+  background: #000;
+  padding-bottom: 60px;
 }
-.main-content:not(.hidden) {
-  opacity: 1;
-  visibility: visible;
+
+.main-content.hidden {
+  display: none;
 }
 
 /* HEADER */
 .site-header {
+  padding: 30px 0 10px;
   text-align: center;
-  padding: 40px 0 24px;
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
 }
 
 .header-title {
-  font-family: "Playfair Display", serif;
-  color: #5d4526;
+  font-family: 'Playfair Display', serif;
+  color: #f5e6b0;
   font-size: 26px;
 }
 
 .gold-small-line {
-  width: 40px;
+  display: inline-block;
+  width: 50px;
   height: 2px;
-  background: #d1b07a;
+  margin: 0 8px;
+  background: linear-gradient(to right, transparent, #f5d77c, transparent);
 }
 
-/* -----------------------------------------------------------
-   SECTIONS & CARDS
------------------------------------------------------------ */
+/* CARD */
 .card {
-  background: #fff;
-  margin: 18px auto;
-  padding: 26px 22px;
-  width: 92%;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.05);
-  text-align: center;
-  position: relative;
+  background: rgba(20,20,20,0.8);
+  border: 1px solid rgba(255,220,150,0.1);
+  margin: 18px;
+  padding: 24px;
+  border-radius: 18px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 14px rgba(0,0,0,0.45);
 }
 
+/* TITLES */
 .section-title {
-  font-family: "Playfair Display", serif;
-  color: #5a4326;
-  font-size: 22px;
+  text-align: center;
+  color: #f5d77c;
+  font-family: 'Playfair Display', serif;
   margin-bottom: 16px;
+  font-size: 22px;
 }
 
-.gold-divider {
-  width: 80px;
-  height: 2px;
-  margin: 0 auto;
-  background: #d1b07a;
-}
-
-/* -----------------------------------------------------------
-   MEMPELAI
------------------------------------------------------------ */
+/* Couple */
 .couple {
   display: flex;
-  justify-content: center;
-  gap: 26px;
-  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 18px;
+}
+
+.person {
+  flex: 1;
+  text-align: center;
 }
 
 .profile-photo {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 100px;
-  box-shadow: 0 6px 12px rgba(0,0,0,.15);
+  width: 100%;
+  max-width: 180px;
+  border-radius: 12px;
+  border: 2px solid #f5d77c;
+  margin-bottom: 12px;
 }
 
-.parent-text {
-  margin-top: 10px;
-  opacity: .8;
-}
-
-/* -----------------------------------------------------------
-   EVENT
------------------------------------------------------------ */
+/* EVENT TEXT */
 .event-item {
   margin: 6px 0;
-  opacity: .9;
+  text-align: center;
+  opacity: 0.92;
 }
 
+/* MAP BUTTON */
 .map-btn {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 10px 20px;
-  background: #f1d9a1;
-  color: #4a3820;
-  border-radius: 20px;
-  font-weight: 600;
+  display: block;
+  margin: 14px auto;
+  padding: 10px 22px;
+  border-radius: 30px;
+  border: 1px solid #f5d77c;
+  color: #f5d77c;
   text-decoration: none;
+  backdrop-filter: blur(2px);
 }
 
-/* -----------------------------------------------------------
-   COUNTDOWN
------------------------------------------------------------ */
-.countdown-block h3 {
+/* COUNTDOWN */
+.countdown-block {
+  text-align: center;
   margin-top: 18px;
-  margin-bottom: 8px;
-  color: #5a4326;
 }
 
 .countdown {
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 16px;
+  margin-top: 8px;
+  opacity: .9;
 }
 
-/* -----------------------------------------------------------
-   LOVE STORY
------------------------------------------------------------ */
+/* STORY */
 .love-story p {
-  margin-bottom: 12px;
-  text-align: left;
+  margin-bottom: 14px;
+  opacity: .9;
   line-height: 1.6;
-  opacity: .92;
 }
 
-/* -----------------------------------------------------------
-   GALERI
------------------------------------------------------------ */
+/* GALLERY */
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -312,82 +299,60 @@ body.ios-fix {
 
 .gallery img {
   width: 100%;
-  border-radius: 6px;
-  object-fit: cover;
-  aspect-ratio: 1/1;
+  border-radius: 10px;
+  border: 1px solid rgba(255,215,120,0.2);
 }
 
-/* -----------------------------------------------------------
-   REKENING
------------------------------------------------------------ */
+/* REKENING */
 .rekening-box {
-  background: #faf4e6;
-  padding: 18px;
-  border-radius: 12px;
-  margin-top: 18px;
-}
-
-.rek-no {
-  font-size: 20px;
-  margin: 8px 0;
-  font-weight: 700;
+  text-align: center;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,215,120,0.4);
 }
 
 .copy-btn {
   margin-top: 8px;
-  padding: 8px 14px;
-  background: #d1b07a;
-  border: none;
-  color: #fff;
-  border-radius: 18px;
-  font-size: 14px;
-  cursor: pointer;
+  padding: 10px 20px;
+  border: 1px solid #f5d77c;
+  background: none;
+  color: #f5d77c;
+  border-radius: 30px;
 }
 
-/* -----------------------------------------------------------
-   KONFIRMASI
------------------------------------------------------------ */
+/* CONFIRM BTN */
 .wa-btn {
+  margin-top: 8px;
+  padding: 12px 30px;
+  border: 1px solid #30f060;
+  border-radius: 30px;
+  color: #30f060;
   display: inline-block;
-  margin-top: 12px;
-  padding: 10px 24px;
-  background: #1fa855;
-  color: #fff;
-  border-radius: 22px;
   text-decoration: none;
-  font-weight: 600;
 }
 
-/* -----------------------------------------------------------
-   FOOTER
------------------------------------------------------------ */
+/* FOOTER */
 footer {
+  margin-top: 30px;
   text-align: center;
-  padding-bottom: 8px; /* compact footer */
-  margin-bottom: 0;
-  opacity: .85;
+  opacity: 0.7;
 }
 
-/* -----------------------------------------------------------
+/* ============================
    ANIMATIONS
------------------------------------------------------------ */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp .8s forwards;
+============================ */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeUp {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 
-/* Responsive */
-@media (max-width: 480px) {
-  .name { font-size: 42px; }
-  .first { font-size: 56px; }
-  .profile-photo { width: 110px; height: 110px; }
-  .gallery { grid-template-columns: repeat(2,1fr); }
+@keyframes breathing {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.05);}
+  100% {transform: scale(1);}
 }
