@@ -2,206 +2,178 @@
 <html lang="id">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Alfandi & Oktavia — The Wedding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alfandi & Oktavia — Undangan Pernikahan</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body class="cover-page ios-fix">
+<body class="cover-page">
 
-  <!-- Background (inline so path pasti) -->
-  <div class="cover-bg" role="img" aria-label="Cover background" style="background-image: url('images/cover.jpg')"></div>
+  <!-- COVER BACKGROUND (portrait friendly) -->
+  <div class="cover-bg" style="background-image: url('images/cover.jpg');"></div>
+  <div class="cover-vignette-left"></div>
+  <div class="cover-vignette-right"></div>
 
-  <!-- Dark Gloss Overlay + Content -->
+  <!-- COVER OVERLAY -->
   <div class="cover-overlay">
     <div class="overlay-gloss"></div>
 
-    <!-- ORNAMENT KIRI -->
-    <div class="ornament ornament-left" aria-hidden="true">
-      <img src="assets/ornament-corner.png" alt="" class="orn-img">
-    </div>
+    <!-- CENTER COVER CONTENT -->
+    <div class="cover-content" role="region" aria-label="Cover Undangan">
 
-    <!-- ORNAMENT KANAN -->
-    <div class="ornament ornament-right" aria-hidden="true">
-      <img src="assets/ornament-corner.png" alt="" class="orn-img">
-    </div>
-
-    <!-- Center content -->
-    <div class="cover-content">
-
-      <!-- THE WEDDING OF -->
       <div id="label-top" class="label-top">THE WEDDING OF</div>
 
-      <!-- Names -->
-      <div class="names-wrapper">
+      <div class="names-wrapper" aria-hidden="false">
         <div class="name"><span class="first">A</span>lfandi</div>
         <div class="amp">&amp;</div>
         <div class="name"><span class="first">O</span>ktavia</div>
       </div>
 
-      <!-- Date -->
-      <div id="date-block" class="date-block">Minggu 28 Desember 2025 — 09:00 WIB s/d Selesai.</div>
+      <div id="date-block" class="date-block">Akad & Resepsi: Minggu, 21 Desember 2025 — 08:00 WIB<br>Resepsi 2 (Ngunduh Mantu): Minggu, 28 Desember 2025 — 09:00 WIB</div>
 
-      <!-- Guest -->
-      <div id="guest-block" class="guest-block">
-        To: <span id="guest-name">Tamu Yang Terhormat</span>
-      </div>
+      <div id="guest-block" class="guest-block">Kepada: <span id="guest-name">Tamu Yang Terhormat</span></div>
 
-      <!-- Open button -->
       <button id="open-btn" class="btn-open" type="button">Buka Undangan</button>
-
     </div>
-
-    <!-- WAYANG BAWAH -->
-    <div class="wayang-ornament" aria-hidden="true">
-      <img src="assets/ornament-wayang.png" alt="Ornament Wayang" class="wayang-img">
-    </div>
-
   </div>
 
-  <!-- MUSIC -->
+  <!-- AUDIO (upload file assets/musik.mp3) -->
   <audio id="bgm" src="assets/musik.mp3" loop preload="auto"></audio>
   <button id="music-toggle" class="music-toggle" aria-label="Play/Pause musik">▶︎</button>
 
-  <!-- MAIN CONTENT -->
-  <!-- note: class 'hidden' kept so JS can remove it when opening; CSS treats :not(.hidden) as visible -->
-  <div id="mainContent" class="main-content hidden">
+  <!-- MAIN CONTENT (hidden sampai Buka Undangan diklik) -->
+  <div id="mainContent" class="main-content hidden" tabindex="-1">
 
     <header class="site-header">
       <div class="header-inner">
-        <span class="gold-small-line"></span>
+        <span class="gold-small-line" aria-hidden="true"></span>
         <h2 class="header-title">Alfandi &amp; Oktavia</h2>
-        <span class="gold-small-line"></span>
+        <span class="gold-small-line" aria-hidden="true"></span>
       </div>
     </header>
 
     <main>
 
       <!-- PEMBUKA -->
-      <section class="card center fade-in">
-        <div class="gold-divider"></div>
+      <section class="card fade-in center" aria-labelledby="pembuka-title">
+        <h3 id="pembuka-title" class="section-title">Undangan Pernikahan</h3>
+        <div class="gold-divider" style="margin-bottom:14px"></div>
 
-        <p style="margin-bottom:8px;opacity:.9">
-          Dengan penuh rasa syukur kepada Tuhan Yang Maha Esa, serta memohon limpahan rahmat dan ridho-Nya,
+        <p style="opacity:.95; margin-bottom:8px">
+          Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan doa restu.
         </p>
 
-        <!-- SALAM PREMIUM -->
-        <p class="fade-in" style="margin:6px 0 14px;line-height:1.8;opacity:.95">
+        <p style="line-height:1.7; opacity:.95">
           <b>Assalamu’alaikum warahmatullahi wabarakatuh</b><br>
-          Shalom<br>
-          Om Swastiastu<br>
-          Namo Buddhaya<br>
-          Salam Kebajikan<br>
-          Rahayu
-        </p>
-
-        <p style="opacity:.9">
-          Dengan segala kerendahan hati, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk hadir
-          memberikan doa restu pada hari bahagia kami.
+          Shalom — Om Swastiastu — Namo Buddhaya — Salam Kebajikan
         </p>
 
         <div class="gold-divider" style="margin-top:16px"></div>
       </section>
 
       <!-- MEMPELAI -->
-      <section class="card fade-in">
-        <h2 class="section-title">Mempelai</h2>
+      <section class="card fade-in" aria-labelledby="mempelai-title">
+        <h2 id="mempelai-title" class="section-title">Mempelai</h2>
 
         <div class="couple">
-          <div class="person">
+          <div class="person" aria-label="Mempelai Pria">
             <img src="images/prewed1.jpg" class="profile-photo" alt="Alfandi">
-            <h3>Alfandi Sulaeman</h3>
-            <p class="parent-text">Putra dari<br>Bapak Suyitno (Black) &amp; Ibu Tati Hartati</p>
+            <h3>Alfandi Sulaeman (Fandi)</h3>
+            <p class="parent-text">Putra dari<br><b>Bapak Suyitno (Black)</b> &amp; <b>Ibu Tati Hartati</b></p>
           </div>
 
-          <div class="person">
+          <div class="person" aria-label="Mempelai Wanita">
             <img src="images/prewed2.jpg" class="profile-photo" alt="Oktavia">
-            <h3>Oktavia Triningtias</h3>
-            <p class="parent-text">Putri dari<br>Bapak Suwarno &amp; Ibu Giarmi</p>
+            <h3>Oktavia Triningtias (Via)</h3>
+            <p class="parent-text">Putri dari<br><b>Bapak Suwarno</b> &amp; <b>Ibu Giarmi</b></p>
           </div>
         </div>
       </section>
 
-      <!-- ACARA 1 -->
-      <section class="card fade-in">
-        <h2 class="section-title">Akad & Resepsi</h2>
+      <!-- ACARA 1: Akad & Resepsi -->
+      <section class="card fade-in" aria-labelledby="acara1-title">
+        <h2 id="acara1-title" class="section-title">Akad &amp; Resepsi </h2>
 
-        <p class="event-item">🗓 <b>Minggu, 21 Desember 2025</b> • 08:00 WIB s/d Selesai</p>
-        <p class="event-item">📍 Jl. Bambu Larangan Rt.06/Rw.05 Cengkareng Barat, Jakarta Barat</p>
+        <p class="event-item">🗓 <strong>Minggu, 21 Desember 2025</strong> — 08:00 WIB s/d Selesai.</p>
+        <p class="event-item">📍 <strong>Jl. Bambu Larangan Rt.06/Rw.05, Cengkareng Barat, Jakarta Barat</strong> (Di rumah mempelai wanita)</p>
 
         <a class="map-btn" href="https://maps.app.goo.gl/xH2Mmn9Gae6yLm4c8?g_st=ic" target="_blank" rel="noopener">Buka di Google Maps</a>
 
-        <div class="countdown-block">
+        <div class="countdown-block" aria-hidden="false">
           <h3>Hitung Mundur</h3>
-          <div id="countdown1" class="countdown" data-date="2025-12-21T08:00:00+07:00"></div>
+          <div id="countdown1" class="countdown" data-date="2025-12-21T08:00:00+07:00" aria-live="polite"></div>
         </div>
       </section>
 
-      <!-- ACARA 2 -->
-      <section class="card fade-in">
-        <h2 class="section-title">Ngunduh Mantu</h2>
+      <!-- ACARA 2: Resepsi 2 -->
+      <section class="card fade-in" aria-labelledby="acara2-title">
+        <h2 id="acara2-title" class="section-title">Ngunduh Mantu</h2>
 
-        <p class="event-item">🗓 <b>Minggu, 28 Desember 2025</b> • 09:00 WIB s/d Selesai</p>
-        <p class="event-item">📍 Jl. KP Utan Rt.12/Rw.04 Cengkareng Timur, Jakarta Barat</p>
+        <p class="event-item">🗓 <strong>Minggu, 28 Desember 2025</strong> — 09:00 WIB s/d Selesai.</p>
+        <p class="event-item">📍 <strong>Jl. KP Utan Rt.12/Rw.04, Cengkareng Timur, Jakarta Barat</strong></p>
 
         <a class="map-btn" href="https://maps.app.goo.gl/ZBqtiRgDEKgQt1UL6?g_st=ic" target="_blank" rel="noopener">Buka di Google Maps</a>
 
         <div class="countdown-block">
           <h3>Hitung Mundur</h3>
-          <div id="countdown2" class="countdown" data-date="2025-12-28T09:00:00+07:00"></div>
+          <div id="countdown2" class="countdown" data-date="2025-12-28T09:00:00+07:00" aria-live="polite"></div>
         </div>
       </section>
 
       <!-- CERITA CINTA -->
-      <section class="card fade-in">
-        <h2 class="section-title">Cerita Cinta Kami</h2>
-
+      <section class="card fade-in" aria-labelledby="cerita-title">
+        <h2 id="cerita-title" class="section-title">Cerita Cinta Kami</h2>
         <div class="love-story">
           <p>2022 — Kami pertama kali saling mengenal di Instagram pada akhir 2022. Awalnya hanya saling menyapa sederhana, tetapi percakapan pertama itu terasa ringan dan begitu nyaman. Tanpa sadar, kami mulai sering berbagi cerita pribadi, dari hal konyol sampai hal yang paling jujur. Rasanya seperti menemukan teman lama yang sudah lama hilang.</p>
+
           <p>Perjalanan kami tidak selalu mulus. Banyak perjuangan yang harus dilewati, baik dari waktu, jarak, maupun keadaan. Meski begitu, setiap tantangan justru membuat kami semakin yakin bahwa kami tumbuh untuk saling menguatkan.</p>
+
           <p>Salah satu titik penting dalam hubungan ini lahir dari perjalanan kami bersama. Perjalanan itu sederhana, tidak glamor, tetapi penuh tawa, kelelahan, kejutan kecil, dan rasa saling menjaga. Di sana kami sadar bahwa kami tidak hanya cocok, tetapi juga saling melengkapi.</p>
+
           <p>Sekarang, dengan hati yang penuh rasa syukur, kami memilih untuk melangkah ke babak baru. Kami menuliskan cerita kami bukan sebagai akhir perjuangan, tetapi sebagai awal rumah yang ingin kami bangun bersama.</p>
         </div>
       </section>
 
       <!-- GALERI -->
-      <section class="card fade-in">
-        <h2 class="section-title">Galeri</h2>
-        <div class="gallery">
-          <img src="images/prewed1.jpg" alt="">
-          <img src="images/prewed2.jpg" alt="">
-          <img src="images/prewed3.jpg" alt="">
-          <img src="images/prewed4.jpg" alt="">
-          <img src="images/prewed5.jpg" alt="">
-          <img src="images/prewed6.jpg" alt="">
-          <img src="images/prewed7.jpg" alt="">
-          <img src="images/prewed8.jpg" alt="">
-          <img src="images/prewed9.jpg" alt="">
-          <img src="images/prewed10.jpg" alt="">
+      <section class="card fade-in" aria-labelledby="galeri-title">
+        <h2 id="galeri-title" class="section-title">Galeri Prewedding</h2>
+        <div class="gallery" aria-label="Galeri foto prewedding">
+          <img src="images/prewed1.jpg" alt="prewed 1">
+          <img src="images/prewed2.jpg" alt="prewed 2">
+          <img src="images/prewed3.jpg" alt="prewed 3">
+          <img src="images/prewed4.jpg" alt="prewed 4">
+          <img src="images/prewed5.jpg" alt="prewed 5">
+          <img src="images/prewed6.jpg" alt="prewed 6">
+          <img src="images/prewed7.jpg" alt="prewed 7">
+          <img src="images/prewed8.jpg" alt="prewed 8">
+          <img src="images/prewed9.jpg" alt="prewed 9">
+          <img src="images/prewed10.jpg" alt="prewed 10">
         </div>
       </section>
 
       <!-- REKENING -->
-      <section class="card fade-in">
-        <h2 class="section-title">Gift / Rekening</h2>
-        <p style="text-align:center">Doa & kehadiran adalah hadiah terbaik. Namun bila ingin memberi tanda kasih, dapat melalui:</p>
+      <section class="card fade-in" aria-labelledby="rekening-title">
+        <h2 id="rekening-title" class="section-title">Hadiah / Rekening</h2>
+        <p style="text-align:center">Doa & kehadiran Anda adalah hadiah terbaik. Bila ingin memberi secara transfer:</p>
 
-        <div class="rekening-box">
+        <div class="rekening-box" role="region" aria-label="Informasi rekening">
           <h3>Bank BCA</h3>
-          <p class="rek-nama">a.n. <b>Alfandi Sulaeman</b></p>
+          <p class="rek-nama">a.n. <strong>Alfandi Sulaeman</strong></p>
           <p class="rek-no" id="rek-no">5310880649</p>
           <button class="copy-btn" onclick="copyRek()">Copy Nomor</button>
         </div>
       </section>
 
-      <!-- KONFIRMASI -->
-      <section class="card center fade-in">
-        <h2 class="section-title">Konfirmasi Kehadiran</h2>
-        <p>Silakan konfirmasi via WhatsApp:</p>
+      <!-- KONFIRMASI / BUKU TAMU -->
+      <section class="card fade-in center" aria-labelledby="konfirmasi-title">
+        <h2 id="konfirmasi-title" class="section-title">Konfirmasi Kehadiran</h2>
 
+        <p>Silakan konfirmasi via WhatsApp:</p>
         <a class="wa-btn" href="https://wa.me/6285776607687?text=Saya%20konfirmasi%20hadir%20-%20Nama%20%3A%20" target="_blank" rel="noopener">Konfirmasi via WhatsApp</a>
 
         <p style="margin-top:14px">Atau isi buku tamu online:</p>
@@ -211,12 +183,13 @@
     </main>
 
     <footer>
-      <p style="opacity:.7;margin:20px 0 2px">Alfandi &amp; Oktavia — 21 Desember 2025</p>
-      <p style="opacity:.55;font-size:12px">© 2025 Funfly & Roamvin</p>
+      <p style="opacity:.7; margin-bottom:6px">Alfandi &amp; Oktavia — 21 &amp; 28 Desember 2025</p>
+      <p style="opacity:.55; font-size:12px">© 2025 FunisFun — Crafted with Love</p>
     </footer>
 
   </div>
 
+  <!-- SCRIPT -->
   <script src="js/script.js"></script>
 </body>
 </html>
