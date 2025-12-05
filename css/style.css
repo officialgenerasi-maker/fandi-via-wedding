@@ -1,208 +1,393 @@
-/*=======================
-   STYLE.CSS — PREMIUM LV
-   Black + Gold theme
-   ======================= */
-:root{
-  --bg:#0b0b0b;
-  --gold:#c7a84a;
-  --text:#efece6;
-  --card: rgba(255,255,255,0.03);
-  --glass: rgba(255,255,255,0.06);
+/* --------------------------------------------------
+   GLOBAL STYLE — LUXURY WEDDING THEME
+-------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;-webkit-font-smoothing:antialiased}
-
-/* cover background image from images/cover.jpg */
-.cover-bg{
-  position:fixed;inset:0;
-  background-image: url('../images/cover.jpg');
-  background-size:cover;background-position:center;
-  filter: blur(2px) brightness(.65) contrast(1.02);
-  z-index:0;transform:translateZ(0);
-}
-/* overlay */
-.cover-overlay{position:fixed;inset:0;z-index:2}
-.overlay-gloss{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.42));mix-blend-mode:overlay;pointer-events:none}
-
-/* ornament */
-.ornament{position:absolute;top:12%;width:86px;opacity:.92;pointer-events:none;z-index:3;filter:drop-shadow(0 6px 18px rgba(0,0,0,.6));animation:floatSlow 10s ease-in-out infinite}
-.ornament-left{left:10px}
-.ornament-right{right:10px;transform:scaleX(-1)}
-.orn-img{width:100%;height:auto;display:block}
-
-/* wayang bottom */
-.wayang-ornament{position:absolute;bottom:6%;left:50%;transform:translateX(-50%);width:min(720px,92%);opacity:.98;z-index:3;pointer-events:none;animation:wiggle 9s ease-in-out infinite}
-.wayang-img{width:100%;display:block;filter:drop-shadow(0 8px 24px rgba(0,0,0,.7))}
-
-/* center content */
-.cover-content{position:relative;z-index:4;width:min(980px,92%);margin:8vh auto 0;text-align:center;padding:28px 18px}
-.label-top{opacity:0;font-size:14px;letter-spacing:3px;font-weight:700;transform:translateY(-8px);transition:all .6s cubic-bezier(.2,.8,.2,1);color:var(--text)}
-.names-wrapper{opacity:0;margin-top:22px;display:flex;align-items:center;justify-content:center;gap:18px;transform:translateY(10px);transition:all .8s cubic-bezier(.2,.8,.2,1)}
-.name{font-family:'Dancing Script',cursive;color:var(--gold);font-size:48px;line-height:.9;text-shadow:0 3px 12px rgba(0,0,0,.7)}
-.name .first{font-size:82px;display:inline-block;vertical-align:middle;margin-right:6px;line-height:.8}
-.amp{font-family:'Playfair Display',serif;color:var(--text);font-size:34px;opacity:.95;transform:translateY(6px)}
-.date-block{opacity:0;margin-top:16px;transform:translateY(8px);transition:all .7s}
-.guest-block{opacity:0;margin-top:12px;transform:translateY(8px);transition:all .7s}
-.btn-open{opacity:0;display:inline-block;margin-top:18px;background:linear-gradient(180deg,var(--gold),#b78f27);color:#080808;padding:12px 30px;border-radius:12px;text-decoration:none;font-weight:800;box-shadow:0 10px 36px rgba(0,0,0,.6);transform-origin:center;transition:all .6s;animation:breath 3.6s ease-in-out infinite}
-.btn-open:active{transform:scale(.98)}
-@keyframes breath{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
-
-/* reveal helper */
-.reveal{opacity:1 !important;transform:translateY(0) !important}
-
-/* MAIN content wrapper (initially hidden) */
-.main-content{opacity:1;position:relative;z-index:5;padding-top:28px;background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.02));}
-.hidden{opacity:0;pointer-events:none;transform:translateY(10px);transition:all .8s ease}
-
-/* ---------- HEADER ---------- */
-.site-header{padding:22px 0;text-align:center;border-bottom:1px solid rgba(199,168,74,0.06);background:transparent;position:sticky;top:0;z-index:40}
-.header-title{color:var(--gold);font-weight:600;font-size:20px}
-.gold-small-line{width:40px;height:2px;background:var(--gold);display:inline-block;opacity:.8}
-
-/* ---------- CARD / CONTENT ---------- */
-.card{background:var(--card);border:1px solid rgba(199,168,74,0.12);border-radius:14px;padding:26px;width:min(880px,94%);margin:26px auto;backdrop-filter:blur(6px);box-shadow:0 10px 30px rgba(0,0,0,.45)}
-.section-title{font-family:'Playfair Display',serif;color:var(--gold);text-align:center;margin-bottom:14px;font-size:22px}
-
-/* couple */
-.couple{display:flex;gap:26px;justify-content:space-around;flex-wrap:wrap}
-.person{text-align:center;width:42%;min-width:240px}
-.profile-photo{width:100%;height:auto;border-radius:12px;border:1px solid rgba(199,168,74,0.25);box-shadow:0 6px 26px rgba(0,0,0,.45)}
-.parent-text{margin-top:10px;opacity:.85}
-
-/* acara / map / countdown */
-.event-item{text-align:center;margin-bottom:10px}
-.map-btn{display:block;margin:10px auto;background:var(--gold);color:#060606;padding:10px 18px;border-radius:10px;text-decoration:none;font-weight:700}
-.countdown{font-size:18px;color:var(--gold);font-weight:700;margin-top:12px}
-
-/* story */
-.love-story p{margin-bottom:14px;opacity:.95}
-
-/* gallery */
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.gallery img{width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.06);object-fit:cover;height:170px;box-shadow:0 6px 18px rgba(0,0,0,.45)}
-
-/* rekening */
-.rekening-box{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;border:1px solid rgba(199,168,74,0.12);text-align:center}
-.rek-nama{margin-top:8px;opacity:.85}
-.rek-no{font-size:18px;font-weight:700;color:var(--gold);letter-spacing:1.6px}
-.copy-btn{margin-top:12px;background:var(--gold);color:#060606;padding:10px 16px;border-radius:10px;border:none;font-weight:700}
-
-/* wa */
-.wa-btn{display:inline-block;background:linear-gradient(180deg,#43d854,#32b144);color:#fff;padding:10px 22px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 8px 20px rgba(0,0,0,.4);}
-
-/* footer */
-footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
-
-/* music btn */
-.music-toggle{position:fixed;right:14px;bottom:14px;z-index:999;background:rgba(0,0,0,0.6);border:1px solid rgba(199,168,74,0.2);padding:10px;border-radius:50%;color:var(--gold);font-size:14px;backdrop-filter:blur(6px)}
-
-/* particles layer */
-#particleCanvas{position:fixed;inset:0;pointer-events:none;z-index:3}
-
-/* animations for ornaments */
-@keyframes floatSlow{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
-@keyframes wiggle{0%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-4px)}100%{transform:translateX(-50%) translateY(0)}}
-
-/* reveal transitions */
-.fade-in{opacity:0;transform:translateY(14px);transition:all .8s cubic-bezier(.2,.85,.25,1)}
-.fade-in.in-view{opacity:1;transform:translateY(0)}
-
-/* responsive */
-@media(max-width:720px){
-  .name{font-size:36px}
-  .name .first{font-size:60px}
-  .ornament,.wayang-ornament{display:none}
-  .gallery img{height:140px}
-  .profile-photo{height:auto}
-  .cover-bg{filter:blur(2px) brightness(.7)}
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f4efe9;
+  color: #3e2f1a;
+  overflow-x: hidden;
 }
 
-/* =========================================
-   ORNAMENT PREMIUM
-   - Glow emas
-   - Emboss halus
-   - Animasi slow luxury
-   ========================================= */
+/* -----------------------------------------------
+   COVER PAGE
+-------------------------------------------------*/
+.cover-page {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
 
-/* ORNAMEN KIRI & KANAN */
+/* Background image */
+.cover-bg {
+  position: absolute;
+  inset: 0;
+  background: url("../images/cover.jpg") center/cover no-repeat;
+  filter: brightness(0.75);
+  z-index: -2;
+}
+
+/* Overlay Gloss */
+.cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(1px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Gloss effect */
+.overlay-gloss {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgba(255,255,255,0.18),
+      rgba(255,255,255,0.02)
+    );
+  pointer-events: none;
+}
+
+/* Ornaments */
 .ornament {
-    position: absolute;
-    top: 18px;
-    width: 150px;
-    pointer-events: none;
-    z-index: 30;
-
-    /* efek premium */
-    filter: drop-shadow(0 0 6px rgba(199,168,74,0.35))
-            drop-shadow(0 4px 14px rgba(0,0,0,0.45));
-
-    opacity: 0;
-    transform: translateY(-12px) scale(0.98);
-    animation: ornamentFade 1.8s ease-out forwards;
+  position: absolute;
+  top: 20px;
+  width: 120px;
 }
-
-.ornament-left { left: 18px; }
-.ornament-right { right: 18px; transform: scaleX(-1) translateY(-12px); }
+.ornament-left { left: 20px; }
+.ornament-right { right: 20px; transform: scaleX(-1); }
 
 .orn-img {
-    width: 100%;
-    height: auto;
-    user-select: none;
+  width: 100%;
+  opacity: 0.55;
+  animation: fadeDown 1.8s ease;
 }
 
-/* WAYANG ORNAMENT */
+/* Center Content */
+.cover-content {
+  text-align: center;
+  color: #fff;
+  animation: fadeIn 2s ease;
+  padding: 0 20px;
+}
+
+/* "THE WEDDING OF" */
+.label-top {
+  font-size: 18px;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+/* Names */
+.names-wrapper {
+  font-family: "Dancing Script", cursive;
+  font-size: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  animation: slideUp 2s ease;
+}
+
+.name .first {
+  color: #ffdca8;
+}
+
+.amp {
+  font-size: 46px;
+  color: #f7e3bd;
+}
+
+/* Date */
+.date-block {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #f9e8c9;
+  animation: fadeIn 2.4s ease;
+}
+
+/* Guest */
+.guest-block {
+  margin-top: 10px;
+  font-size: 17px;
+  color: #f8e9d2;
+  animation: fadeIn 2.8s ease;
+}
+
+/* Open Button */
+.btn-open {
+  margin-top: 30px;
+  padding: 14px 26px;
+  background: linear-gradient(135deg, #c9a063, #e8d3a3, #c9a063);
+  color: #3e2f1a;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: .3s;
+  animation: popIn 1.2s ease;
+}
+
+.btn-open:hover {
+  transform: scale(1.06);
+}
+
+/* Wayang bottom */
 .wayang-ornament {
-    margin: 42px auto 0;
-    width: 240px;
-    pointer-events: none;
-    z-index: 25;
+  position: absolute;
+  bottom: 10px;
+  width: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: .7;
+}
+.wayang-img { width: 100%; }
 
-    filter: drop-shadow(0 0 8px rgba(199,168,74,0.35))
-            drop-shadow(0 6px 22px rgba(0,0,0,0.55));
+/* ---------------------------
+   MUSIC BUTTON
+-----------------------------*/
+.music-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #c9a063;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 0 14px rgba(0,0,0,0.3);
+  transition: .3s;
+}
+.music-toggle:hover { transform: scale(1.12); }
 
-    opacity: 0;
-    transform: translateY(14px) scale(0.97);
-    animation: wayangFade 2.2s ease-out forwards;
+/* ------------------------------
+   MAIN CONTENT
+------------------------------*/
+.main-content {
+  padding-top: 40px;
+  animation: fadeIn 1.4s ease;
 }
 
-.wayang-img {
-    width: 100%;
-    display: block;
-    user-select: none;
+.hidden {
+  display: none;
 }
 
-/* ANIMASI ORNAMEN */
-@keyframes ornamentFade {
-    0% { opacity: 0; transform: translateY(-12px) scale(0.98); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
+/* HEADER */
+.site-header {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-@keyframes wayangFade {
-    0% { opacity: 0; transform: translateY(14px) scale(0.97); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
+.header-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
 }
 
-/* MOBILE FIX */
-@media(max-width: 720px){
-    .ornament {
-        width: 96px;
-        top: 14px;
-    }
-    .ornament-left { left: 8px; }
-    .ornament-right { right: 8px; }
-
-    .wayang-ornament {
-        width: 160px;
-        margin-top: 32px;
-    }
-
-   .to-text { 
-  margin-top: 30px; 
+.gold-small-line {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg,#caa86c,#f0e2be,#caa86c);
+  border-radius: 5px;
 }
 
-.open-btn {
-  margin-top: 20px;
+.header-title {
+  font-family: "Playfair Display", serif;
+  color: #3e2f1a;
+  font-size: 26px;
 }
+
+/* CARD */
+.card {
+  background: #fff;
+  margin: 20px;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.07);
+  animation: fadeUp 1.2s ease;
+}
+
+/* Section title */
+.section-title {
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  color: #3e2f1a;
+  margin-bottom: 16px;
+  font-size: 24px;
+}
+
+/* Gold Divider */
+.gold-divider {
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right,#caa86c,#f3e4bf,#caa86c);
+  border-radius: 6px;
+  margin: 14px 0;
+}
+
+/* ------------------------------
+   MEMPELAI
+-------------------------------*/
+.couple {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.person {
+  text-align: center;
+}
+
+.profile-photo {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 4px solid #d7c7a5;
+  animation: zoomIn 1.2s ease;
+}
+
+/* ------------------------------
+   EVENT ITEMS
+-------------------------------*/
+.event-item {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+/* Maps Button */
+.map-btn {
+  display: block;
+  margin: 14px auto;
+  width: fit-content;
+  padding: 10px 18px;
+  background: #caa86c;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: .3s;
+}
+.map-btn:hover { transform: scale(1.04); }
+
+/* Countdown */
+.countdown-block {
+  text-align: center;
+  margin-top: 14px;
+}
+
+.countdown {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #3e2f1a;
+  font-weight: bold;
+}
+
+/* ----------------------------
+   GALLERY
+-----------------------------*/
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  transition: .35s;
+  animation: fadeZoom 1.4s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.06);
+}
+
+/* ----------------------------
+   REKENING
+-----------------------------*/
+.rekening-box {
+  background: #f8f2e7;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid #e5d8c1;
+}
+
+.copy-btn {
+  padding: 10px 18px;
+  margin-top: 10px;
+  background: #caa86c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .3s;
+}
+.copy-btn:hover { transform: scale(1.05); }
+
+/* ----------------------------
+   RSVP / WA Button
+-----------------------------*/
+.wa-btn {
+  display: inline-block;
+  padding: 12px 18px;
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  transition: .3s;
+  font-weight: 600;
+}
+.wa-btn:hover { transform: scale(1.07); }
+
+/* ----------------------------
+   FOOTER
+-----------------------------*/
+footer {
+  text-align: center;
+  padding: 30px 0 50px;
+  font-size: 14px;
+  color: #6a5d48;
+}
+
+/* ----------------------------------
+   ANIMATIONS
+-----------------------------------*/
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+@keyframes fadeUp { from {opacity:0; transform:translateY(20px);} to {opacity:1;} }
+@keyframes slideUp { from {opacity:0; transform:translateY(40px);} to {opacity:1;} }
+@keyframes popIn { 0%{transform:scale(.4);} 80%{transform:scale(1.05);} 100%{transform:scale(1);} }
+@keyframes fadeDown { from {opacity:0; transform:translateY(-20px);} to {opacity:0.55;} }
+@keyframes zoomIn { from {opacity:0; transform:scale(.6);} to {opacity:1;} }
+@keyframes fadeZoom { from {opacity:0; transform:scale(1.3);} to {opacity:1;} }
+
+/* ----------------------------------
+   RESPONSIVE
+-----------------------------------*/
+@media(max-width:480px){
+  .names-wrapper { font-size: 40px; }
+  .profile-photo { width: 110px; height: 110px; }
+  .gallery { grid-template-columns: repeat(2,1fr); }
 }
