@@ -243,15 +243,3 @@ document.addEventListener("DOMContentLoaded", function () {
         headerTitle.classList.add("hide-header");
     }
 });
-
-// Sembunyikan header di dalam mainContent saat undangan dibuka
-document.addEventListener("DOMContentLoaded", function () {
-  const openBtn = document.getElementById("open-btn");
-  const headerTitle = document.querySelector(".header-title");
-
-  if (openBtn && headerTitle) {
-    openBtn.addEventListener("click", function () {
-      headerTitle.classList.add("hide-header");
-    });
-  }
-});
