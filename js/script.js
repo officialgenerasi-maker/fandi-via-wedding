@@ -233,13 +233,3 @@ document.addEventListener('DOMContentLoaded', function(){
   }, {threshold:0.14});
   document.querySelectorAll('.fade-in').forEach(el=> io.observe(el));
 });
-
-// Hapus header title ketika sudah masuk ke konten (main.html)
-document.addEventListener("DOMContentLoaded", function () {
-    const headerTitle = document.querySelector(".header-title");
-
-    // Cek apakah kita berada di main.html
-    if (headerTitle && window.location.pathname.includes("main.html")) {
-        headerTitle.classList.add("hide-header");
-    }
-});
