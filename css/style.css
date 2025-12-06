@@ -118,3 +118,8 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
   .profile-photo{height:auto}
   .cover-bg{filter:blur(2px) brightness(.7)}
 }
+
+/* Hilangkan header title setelah open */
+.hide-header {
+    display: none !important;
+}
