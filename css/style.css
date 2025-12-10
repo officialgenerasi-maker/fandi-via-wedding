@@ -182,8 +182,8 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
 /* ==== FOTO MEMPELAI JADI LINGKARAN PREMIUM ==== */
 
 .mempelai-img-container {
-    width: 150px;          /* bisa kamu gedein kalau perlu */
-    height: 150px;
+    width: 180px;          /* bisa kamu gedein kalau perlu */
+    height: 180px;
     margin: 0 auto;        /* ini yang bikin benar-benar ke tengah */
     border-radius: 50%;
     overflow: hidden;
@@ -201,6 +201,14 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
     object-fit: cover;     /* biar wajah selalu pas */
 }
 
+.couple {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* ini yang penting */
+    justify-content: center;
+    width: 100%;
+}
+
 .person {
     text-align: center;
     margin-bottom: 45px;
@@ -210,8 +218,16 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
     animation: fadeUp 0.9s ease-out forwards;
 }
 
+.person {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* ini yang bikin fotonya center */
+}
+
 .person:nth-child(1) {
-    animation-delay: 0.3s;
+    animation-delay: 0.6s;
 }
 
 .person:nth-child(2) {
