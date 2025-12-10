@@ -44,8 +44,8 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;-we
 .name .first{font-size:82px;display:inline-block;vertical-align:middle;margin-right:6px;line-height:.8}
 .amp{font-family:'Playfair Display',serif;color:var(--text);font-size:34px;opacity:.95;transform:translateY(6px)}
 .date-block{opacity:0;margin-top:16px;transform:translateY(8px);transition:all .7s}
-.guest-block{opacity:0;margin-top:12px;transform:translateY(8px);transition:all .7s}
-.btn-open{opacity:0;display:inline-block;margin-top:18px;background:linear-gradient(180deg,var(--gold),#b78f27);color:#080808;padding:12px 30px;border-radius:12px;text-decoration:none;font-weight:800;box-shadow:0 10px 36px rgba(0,0,0,.6);transform-origin:center;transition:all .6s;animation:breath 3.6s ease-in-out infinite}
+.guest-block{opacity:0;margin-top:50px;transform:translateY(8px);transition:all .7s}
+.btn-open{opacity:0;display:inline-block;margin-top:60px;background:linear-gradient(180deg,var(--gold),#b78f27);color:#080808;padding:12px 30px;border-radius:12px;text-decoration:none;font-weight:800;box-shadow:0 10px 36px rgba(0,0,0,.6);transform-origin:center;transition:all .6s;animation:breath 3.6s ease-in-out infinite}
 .btn-open:active{transform:scale(.98)}
 @keyframes breath{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
 
