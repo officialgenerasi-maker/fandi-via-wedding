@@ -267,9 +267,9 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
 
 /* ===== HEADER BARU MEWAH ===== */
 .enhanced-header {
-    background: #5e4821; /* coklat elegan */
-    padding: 22px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: #5e4821 !important; /* coklat elegan PAKSA tampil */
+    padding: 22px 0 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
     margin-bottom: 24px;
 }
 
@@ -291,11 +291,10 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
     color: var(--gold);
     font-size: 18px;
     font-weight: 700;
-    margin: 0 4px;
 }
 
 .header-decor .header-title {
-    color: var(--gold);
+    color: var(--gold) !important;
     font-family: 'Playfair Display', serif;
     font-size: 20px;
     letter-spacing: 1px;
