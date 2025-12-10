@@ -118,3 +118,63 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
   .profile-photo{height:auto}
   .cover-bg{filter:blur(2px) brightness(.7)}
 }
+
+/* =======================
+   PREMIUM TERIMA KASIH
+   ======================= */
+
+.thankyou-section {
+  padding: 40px 28px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.thankyou-header {
+  text-align: center;
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.thankyou-ornament {
+  width: 70px;
+  opacity: 0.9;
+  margin-bottom: 6px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thankyou-title {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  color: #d4b86a;
+  margin: 0;
+  font-weight: 600;
+}
+
+.thankyou-line {
+  width: 90px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #d4b86a, transparent);
+  display: block;
+  margin: 10px auto 0 auto;
+  border-radius: 2px;
+}
+
+.thankyou-text {
+  font-size: 15px;
+  opacity: 0.85;
+  line-height: 1.6;
+  color: #eee;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.thankyou-text-bold {
+  font-size: 16px;
+  margin-top: 14px;
+  color: #d4b86a;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.5;
+}
