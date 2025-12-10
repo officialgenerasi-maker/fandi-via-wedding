@@ -262,5 +262,5 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
 
 /* Geser foto wanita agar wajahnya lebih center */
 .mempelai-img-container img.wanita {
-    object-position: center -10px; /* naik 20px */
+    object-position: center -25px; /* naik 20px */
 }
