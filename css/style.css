@@ -305,18 +305,34 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
     letter-spacing: 1.2px;
 }
 
-/* THE WEDDING OF — DIPINDAHKAN KE BAGIAN ATAS COVER */
+/* ===============================
+   FIX: Posisi "THE WEDDING OF"
+   =============================== */
+
+#label-top,
 .label-top {
   position: absolute;
-  top: 20px;        /* jarak dari atas */
+  top: 16px; /* geser lebih ke atas */
   left: 50%;
   transform: translateX(-50%);
-  font-size: 14px;
-  letter-spacing: 3px;
-  opacity: 0.92;
-  color: #ffffff;
-  text-transform: uppercase;
+  opacity: 1 !important;
+  font-size: 16px;
+  letter-spacing: 5px;
+  color: var(--text);
   font-weight: 700;
+  text-transform: uppercase;
   z-index: 10;
-  animation: fadeDown 1.6s ease;
+  animation: fadeDown 1.2s ease forwards;
+}
+
+/* Animasinya */
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
