@@ -308,15 +308,15 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
 /* THE WEDDING OF — DIPINDAHKAN KE BAGIAN ATAS COVER */
 .label-top {
   position: absolute;
-  top: 40px;        /* jarak dari atas */
+  top: 20px;        /* jarak dari atas */
   left: 50%;
   transform: translateX(-50%);
-  font-size: 18px;
-  letter-spacing: 5px;
+  font-size: 14px;
+  letter-spacing: 3px;
   opacity: 0.92;
   color: #ffffff;
   text-transform: uppercase;
-  font-weight: 300;
+  font-weight: 700;
   z-index: 10;
   animation: fadeDown 1.6s ease;
 }
