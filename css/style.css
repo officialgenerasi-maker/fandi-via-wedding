@@ -304,3 +304,6 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
     font-size: 21px;
     letter-spacing: 1.2px;
 }
+.cover-content {
+    padding-top: 120px;
+}
