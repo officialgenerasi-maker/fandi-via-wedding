@@ -358,7 +358,7 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
 
 /* Huruf pertama besar dan TANPA spasi */
 .name .first {
-  font-size: 68px;
+  font-size: 52px;
   margin: 0;
   padding: 0;
   display: inline-block;
