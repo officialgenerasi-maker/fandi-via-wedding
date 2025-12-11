@@ -305,40 +305,28 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
     letter-spacing: 1.2px;
 }
 
-/* ===========================================
-   SUPER FIX — PAKSA "THE WEDDING OF" KE ATAS
-   =========================================== */
-
-#cover {
-  position: relative;
-}
-
-.cover-content {
-  position: relative;
-}
-
+/* ===== FIX POSISI TULISAN "THE WEDDING OF" ===== */
 #label-top {
   position: absolute !important;
-  top: 20px !important;      /* GESER KE ATAS LEBIH JAUH */
+  top: 38px !important;         /* Geser lebih tinggi / rendah di sini */
   left: 50% !important;
   transform: translateX(-50%) !important;
-  z-index: 9999 !important;
-  width: 100%;
-  text-align: center;
 
-  font-size: 18px !important;
-  letter-spacing: 6px;
-  color: var(--text) !important;
+  font-size: 16px !important;
   font-weight: 700;
-  opacity: 1 !important;
+  letter-spacing: 5px;
+  color: var(--text);
 
-  animation: labelFade 1.2s ease forwards;
+  text-align: center;
+  z-index: 50;
+  opacity: 0;
+  animation: fadeTop 1.2s ease forwards;
 }
 
-@keyframes labelFade {
+@keyframes fadeTop {
   0% {
     opacity: 0;
-    transform: translate(-50%, -30px);
+    transform: translate(-50%, -22px);
   }
   100% {
     opacity: 1;
