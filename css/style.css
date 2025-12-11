@@ -326,3 +326,51 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
   0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+/* Pastikan wrapper tetap center penuh */
+.names-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;             /* jarak antar nama & ampersand */
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation: showNames 1.2s ease forwards;
+}
+
+@keyframes showNames {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Nama */
+.name {
+  font-family: 'Dancing Script', cursive;
+  font-size: 48px;
+  color: var(--gold);
+  line-height: 0.85;
+  text-shadow: 0 3px 12px rgba(0,0,0,.55);
+}
+
+/* Huruf pertama besar dan TANPA spasi */
+.name .first {
+  font-size: 82px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  line-height: 0.8;
+}
+
+/* Ampersand (&) */
+.amp {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: var(--text);
+  opacity: 0.95;
+  margin: 0 8px;
+  transform: translateY(6px);
+}
