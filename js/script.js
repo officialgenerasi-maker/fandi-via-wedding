@@ -224,6 +224,14 @@ document.addEventListener('DOMContentLoaded', function(){
   initGalleryLightbox();
   initParticles();
   initParallax();
+}
+
+  // ===== SET NAMA TAMU DARI URL =====
+  const guest = getQueryParam("to") || getQueryParam("guest") || getQueryParam("nama") || null;
+
+     if (guest) {
+  document.getElementById("guest-name").textContent = guest;
+}
 
   // fade-in observer for content
   const io = new IntersectionObserver((entries)=>{
