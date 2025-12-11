@@ -39,7 +39,7 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;-we
 /* center content */
 .cover-content{position:relative;z-index:4;width:min(980px,92%);margin:8vh auto 0;text-align:center;padding:28px 18px}
 .label-top{opacity:0;font-size:14px;letter-spacing:3px;font-weight:700;transform:translateY(-8px);transition:all .6s cubic-bezier(.2,.8,.2,1);color:var(--text)}
-.names-wrapper{opacity:0;margin-top:22px;display:flex;align-items:center;justify-content:center;gap:18px;transform:translateY(10px);transition:all .8s cubic-bezier(.2,.8,.2,1)}
+.names-wrapper{opacity:0;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:18px;transform:translateY(10px);transition:all .8s cubic-bezier(.2,.8,.2,1)}
 .name{font-family:'Dancing Script',cursive;color:var(--gold);font-size:48px;line-height:.9;text-shadow:0 3px 12px rgba(0,0,0,.7)}
 .name .first{font-size:82px;display:inline-block;vertical-align:middle;margin-right:6px;line-height:.8}
 .amp{font-family:'Playfair Display',serif;color:var(--text);font-size:34px;opacity:.95;transform:translateY(6px)}
