@@ -43,9 +43,9 @@ body{background:var(--bg);color:var(--text);font-family:'Poppins',sans-serif;-we
 .name{font-family:'Dancing Script',cursive;color:var(--gold);font-size:48px;line-height:.9;text-shadow:0 3px 12px rgba(0,0,0,.7)}
 .name .first{font-size:82px;display:inline-block;vertical-align:middle;margin-right:6px;line-height:.8}
 .amp{font-family:'Playfair Display',serif;color:var(--text);font-size:34px;opacity:.95;transform:translateY(6px)}
-.date-block{opacity:0;margin-top:104px;transform:translateY(8px);transition:all .7s}
-.guest-block{opacity:0;margin-top:108px;transform:translateY(8px);transition:all .7s}
-.btn-open{opacity:0;display:inline-block;margin-top:108px;background:linear-gradient(180deg,var(--gold),#b78f27);color:#080808;padding:12px 30px;border-radius:12px;text-decoration:none;font-weight:800;box-shadow:0 10px 36px rgba(0,0,0,.6);transform-origin:center;transition:all .6s;animation:breath 3.6s ease-in-out infinite}
+.date-block{opacity:0;margin-top:80px;transform:translateY(8px);transition:all .7s}
+.guest-block{opacity:0;margin-top:90px;transform:translateY(8px);transition:all .7s}
+.btn-open{opacity:0;display:inline-block;margin-top:100px;background:linear-gradient(180deg,var(--gold),#b78f27);color:#080808;padding:12px 30px;border-radius:12px;text-decoration:none;font-weight:800;box-shadow:0 10px 36px rgba(0,0,0,.6);transform-origin:center;transition:all .6s;animation:breath 3.6s ease-in-out infinite}
 .btn-open:active{transform:scale(.98)}
 @keyframes breath{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
 
@@ -332,7 +332,7 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;             /* jarak antar nama & ampersand */
+  gap: 10px;             /* jarak antar nama & ampersand */
   width: 100%;
   text-align: center;
   margin-top: 10px;
