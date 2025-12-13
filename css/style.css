@@ -358,7 +358,7 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
 
 /* Huruf pertama besar dan TANPA spasi */
 .name .first {
-  font-size: 82px;
+  font-size: 42px;
   margin: 0;
   padding: 5px;
   display: inline-block;
@@ -368,7 +368,7 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
 /* Ampersand (&) */
 .amp {
   font-family: 'Playfair Display', serif;
-  font-size: 42px;
+  font-size: 32px;
   color: var(--text);
   opacity: 0.95;
   margin: 0 8px;
