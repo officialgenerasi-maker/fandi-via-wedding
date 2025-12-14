@@ -350,7 +350,7 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
 /* Nama */
 .name {
   font-family: 'Dancing Script', cursive;
-  font-size: 62px;
+  font-size: 42px;
   color: var(--gold);
   line-height: 0.85;
   text-shadow: 0 3px 12px rgba(0,0,0,.55);
@@ -358,7 +358,7 @@ footer{padding:40px 0 80px;text-align:center;color:rgba(255,255,255,0.65)}
 
 /* Huruf pertama besar dan TANPA spasi */
 .name .first {
-  font-size: 42px;
+  font-size: 50px;
   margin: 0;
   padding: 5px;
   display: inline-block;
